@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Write View</title>
+</head>
+<style>
+  body {
+    font-family: "D2coding"
+  }
+
+  .ui_border .border_tit {
+    font-size: 28px;
+    line-height: 57px;
+    color: #333;
+    font-weight: bold;
+    text-align: center
+  }
+
+  .ui_border .border_cont {
+    border-top: 3px solid #8b8b8b;
+    border-bottom: 3px solid #8b8b8b;
+    font-family: "D2coding";
+  }
+
+  .ui_border .border_cont input[type="text"], textarea {
+    font-size: 18px;
+    padding: 0 30px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 0;
+    text-align: left
+  }
+
+  .ui_border .border_cont  {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    line-height: normal;
+    color: #666;
+    font-family: D2Coding
+  }
+
+  .btn_area {
+    margin-top: 30px;
+    text-align: center
+  }
+
+  /* 버튼 공통 */
+  button, input {
+    margin: 0;
+    padding: 0;
+    border: 0
+  }
+
+  .ui_btn {
+    display: block;
+    padding: 10px 0;
+    cursor: pointer;
+    color: #8f8f8f;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5em;
+    font-family: 'D2coding';
+    font-weight: bold;
+    background: 0 0;
+    border: 1px solid #a8a8a8;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-sizing: border-box
+  }
+
+  .ui_btn.btn_inline {
+    display: inline-block !important;
+    padding: 10px 0;
+    width: 48%
+  }
+
+  .ui_btn.btn_emph {
+    color: #fff;
+    background-color: #4169e1;
+    border-color: #2078d2
+  }
+</style>
+<body>
+<div class="ui_container">
+    <div class="ui_border">
+      <h3 class="border_tit">Write View</h3>
+      <div class="border_cont">
+
+        <td th:text="${board.board_title}" name="board_title"/>
+        <td th:text="${board.board_content}" name="board_content" cols="30" rows="10"/>
+
+
+
+      </div>
+      <div class="btn_area">
+        <a th:href="@{/board/writemodify/{board_index}(board_index=${board.board_index})}"class="ui_btn btn_inline">수정</a>
+        <a th:href="@{/board/writedelete(board_index=${board.board_index})}"class="ui_btn btn_inline btn_emph">삭제</a>
+      </div>
+    </div>
+</div>
+</body>
+</html>
